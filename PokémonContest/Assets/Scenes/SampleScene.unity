@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3862428333496521934, guid: b4539e17de59b7df39beced0b35c4205, type: 3}
+  m_Sprite: {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -211,7 +211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &104580657
 RectTransform:
   m_ObjectHideFlags: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3862428333496521934, guid: b4539e17de59b7df39beced0b35c4205, type: 3}
+  m_Sprite: {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -436,7 +436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &132039954
 RectTransform:
   m_ObjectHideFlags: 0
@@ -511,7 +511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &132545312
 RectTransform:
   m_ObjectHideFlags: 0
@@ -551,7 +551,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 137655908918426253, guid: e8b6fc2c004225dde82affe5969b5237, type: 3}
+  m_Sprite: {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3862428333496521934, guid: b4539e17de59b7df39beced0b35c4205, type: 3}
+  m_Sprite: {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -701,9 +701,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><size=52>Alakazam</b>
-
-    <size=42><color=black>Sean'
+  m_text: "<b><size=52>Machoke<color=blue>\u2642\uFE0F</color></b>\n<size=42><color=black>Yves"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3c9b68eaf0a314f3e8be062f911fcb84, type: 2}
   m_sharedMaterial: {fileID: 3237812812371334167, guid: 3c9b68eaf0a314f3e8be062f911fcb84, type: 2}
@@ -834,11 +832,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8fc10123985b54484d9b824ea11b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 320564300}
+  gameManager: {fileID: 1078766695}
   cardText: {fileID: 743547006}
   heartSprites:
   - {fileID: -3862428333496521934, guid: b4539e17de59b7df39beced0b35c4205, type: 3}
   - {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
-  - {fileID: 137655908918426253, guid: e8b6fc2c004225dde82affe5969b5237, type: 3}
+  - {fileID: 8377326608514935283, guid: 2dee0e0f9629391c484735b09894eb04, type: 3}
   hearts:
   - {fileID: 1049880567}
   - {fileID: 844215445}
@@ -850,10 +850,7 @@ MonoBehaviour:
   - {fileID: 552273466}
   - {fileID: 1813969095}
   - {fileID: 115430012}
-  pokemonName: Hawlucha
-  trainerName: "El Gorri\xF3\xF1o"
-  totalScore: 0
-  currentScore: 2
+  contestant: {fileID: 1352838965}
 --- !u!114 &320564300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,7 +906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &357055647
 RectTransform:
   m_ObjectHideFlags: 0
@@ -949,7 +946,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 137655908918426253, guid: e8b6fc2c004225dde82affe5969b5237, type: 3}
+  m_Sprite: {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -966,6 +963,109 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357055646}
+  m_CullTransparentMesh: 1
+--- !u!1 &395996129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 395996130}
+  - component: {fileID: 395996133}
+  - component: {fileID: 395996132}
+  - component: {fileID: 395996131}
+  m_Layer: 5
+  m_Name: Contestant4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &395996130
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395996129}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 934372513}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1250, y: -250}
+  m_SizeDelta: {x: 67, y: 48}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &395996131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395996129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d8705d1d0404e1ebcb080cd97869f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 395996132}
+  rectTransform: {fileID: 395996130}
+  pokemon: {fileID: 11400000, guid: 64659e9aff32f97ca924b86256e89a25, type: 2}
+  pokemonName: Haunter
+  trainer: Ao
+  attacks: []
+  sex: 1
+  orientation: 0
+  confidence: 0
+  nervous: 0
+  protection: 0
+  state: 0
+  totalScore: 0
+  currentScore: 0
+  futureScore: 0
+--- !u!114 &395996132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395996129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 120006251816744003, guid: 0d8e5394cfa150ba98bf1e5d12e784ab, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &395996133
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395996129}
   m_CullTransparentMesh: 1
 --- !u!1 &402915329
 GameObject:
@@ -984,7 +1084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &402915330
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1233,7 +1333,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.2421518, g: 0.2421518, b: 0.2421518, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1505,7 +1605,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3862428333496521934, guid: b4539e17de59b7df39beced0b35c4205, type: 3}
+  m_Sprite: {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1615,7 +1715,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &647447253
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1655,7 +1755,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 137655908918426253, guid: e8b6fc2c004225dde82affe5969b5237, type: 3}
+  m_Sprite: {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1765,7 +1865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &699731670
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1955,7 +2055,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><size=52>Hawlucha</b>\n<size=42><color=black>El Gorri\xF3\xF1o"
+  m_text: "<b><size=52>Grovyle<color=blue>\u2642\uFE0F</color></b>\n<size=42><color=black>Javier"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3c9b68eaf0a314f3e8be062f911fcb84, type: 2}
   m_sharedMaterial: {fileID: 3237812812371334167, guid: 3c9b68eaf0a314f3e8be062f911fcb84, type: 2}
@@ -2051,7 +2151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &815270814
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2311,7 +2411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &844215444
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2501,7 +2601,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3862428333496521934, guid: b4539e17de59b7df39beced0b35c4205, type: 3}
+  m_Sprite: {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2613,6 +2713,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1715073159}
+  - {fileID: 1352838964}
+  - {fileID: 1055184323}
+  - {fileID: 395996130}
   - {fileID: 1494781873}
   - {fileID: 1941023621}
   m_Father: {fileID: 0}
@@ -2622,6 +2726,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &993298114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 993298115}
+  - component: {fileID: 993298117}
+  - component: {fileID: 993298116}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &993298115
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993298114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1199274476}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 12, y: 12}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &993298116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993298114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -6231044458718751821, guid: 9d8c37daba6a4c48ebfa2322071f3f2c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &993298117
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993298114}
+  m_CullTransparentMesh: 1
 --- !u!1 &1027172970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,7 +2893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1049880566
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2772,6 +2951,190 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049880565}
   m_CullTransparentMesh: 1
+--- !u!1 &1055184322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1055184323}
+  - component: {fileID: 1055184326}
+  - component: {fileID: 1055184325}
+  - component: {fileID: 1055184324}
+  m_Layer: 5
+  m_Name: Contestant3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1055184323
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055184322}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 934372513}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1250, y: -250}
+  m_SizeDelta: {x: 58, y: 69}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1055184324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055184322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d8705d1d0404e1ebcb080cd97869f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 1055184325}
+  rectTransform: {fileID: 1055184323}
+  pokemon: {fileID: 11400000, guid: e6c6d2c5d9fd0c714a847eabf2c35f68, type: 2}
+  pokemonName: Machoke
+  trainer: Yves
+  attacks: []
+  sex: 0
+  orientation: 0
+  confidence: -1
+  nervous: 0
+  protection: 0
+  state: 0
+  totalScore: 0
+  currentScore: 0
+  futureScore: 0
+--- !u!114 &1055184325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055184322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 8913920769284631501, guid: 87c392d043c4f7012a7c213fdfc585bb, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1055184326
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055184322}
+  m_CullTransparentMesh: 1
+--- !u!1 &1078766693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1078766694}
+  - component: {fileID: 1078766695}
+  - component: {fileID: 1078766696}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1078766694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078766693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1078766695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078766693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a3b637f82b0c38a2c57623b3013d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contestants:
+  - {fileID: 1715073160}
+  - {fileID: 1352838965}
+  - {fileID: 1055184324}
+  - {fileID: 395996131}
+  textbox: {fileID: 1941023624}
+  turn: -1
+  contestType: 0
+  contestantsMoveSpeed: 2
+  attackRoster:
+  - {fileID: 11400000, guid: 7fac17a4633e26e958fcaa55e7ad3864, type: 2}
+  - {fileID: 11400000, guid: e781b7ba0929a1c0fa120e84600401ab, type: 2}
+  - {fileID: 11400000, guid: 670b2472f2c8d0e0195d7bfefd5ea6f8, type: 2}
+  - {fileID: 11400000, guid: e3d574b3b26f3dc208fb600e96bcdfe0, type: 2}
+  crowdCapture: {fileID: 0}
+--- !u!114 &1078766696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078766693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9559fb661526e165ad9c3d71a9de984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textboxImage: {fileID: 1941023622}
+  gameManager: {fileID: 1078766695}
+  textboxSprites:
+  - {fileID: 858488808, guid: ac412e12b681ec1c4b6c52034a07aa0c, type: 3}
+  - {fileID: -317497037, guid: ac412e12b681ec1c4b6c52034a07aa0c, type: 3}
+  - {fileID: -695031210, guid: ac412e12b681ec1c4b6c52034a07aa0c, type: 3}
+  - {fileID: -1940177425, guid: ac412e12b681ec1c4b6c52034a07aa0c, type: 3}
+  - {fileID: -1689887816, guid: ac412e12b681ec1c4b6c52034a07aa0c, type: 3}
+  - {fileID: -1326107020, guid: ac412e12b681ec1c4b6c52034a07aa0c, type: 3}
 --- !u!1 &1115351268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,7 +3192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3862428333496521934, guid: b4539e17de59b7df39beced0b35c4205, type: 3}
+  m_Sprite: {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2864,7 +3227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1163938388
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2955,6 +3318,7 @@ RectTransform:
   m_Children:
   - {fileID: 1840891618}
   - {fileID: 473857595}
+  - {fileID: 993298115}
   m_Father: {fileID: 1494781873}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3012,11 +3376,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8fc10123985b54484d9b824ea11b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 1199274477}
+  gameManager: {fileID: 1078766695}
   cardText: {fileID: 1840891619}
   heartSprites:
   - {fileID: -3862428333496521934, guid: b4539e17de59b7df39beced0b35c4205, type: 3}
   - {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
-  - {fileID: 137655908918426253, guid: e8b6fc2c004225dde82affe5969b5237, type: 3}
+  - {fileID: 8377326608514935283, guid: 2dee0e0f9629391c484735b09894eb04, type: 3}
   hearts:
   - {fileID: 2003692817}
   - {fileID: 815270815}
@@ -3028,10 +3394,7 @@ MonoBehaviour:
   - {fileID: 642145472}
   - {fileID: 120938086}
   - {fileID: 848727442}
-  pokemonName: Pikachu
-  trainerName: Micheal
-  totalScore: 0
-  currentScore: 6
+  contestant: {fileID: 1715073160}
 --- !u!1 &1232452067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3164,9 +3527,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><size=52>Charmander</b>
-
-    <size=42><color=black>Julia'
+  m_text: "<b><size=52>Haunter<color=red>\u2640\uFE0F</color></b>\n<size=42><color=black>Ao"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3c9b68eaf0a314f3e8be062f911fcb84, type: 2}
   m_sharedMaterial: {fileID: 3237812812371334167, guid: 3c9b68eaf0a314f3e8be062f911fcb84, type: 2}
@@ -3324,6 +3685,109 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1352838963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1352838964}
+  - component: {fileID: 1352838967}
+  - component: {fileID: 1352838966}
+  - component: {fileID: 1352838965}
+  m_Layer: 5
+  m_Name: Contestant2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1352838964
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352838963}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 934372513}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1250, y: -250}
+  m_SizeDelta: {x: 64, y: 63}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1352838965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352838963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d8705d1d0404e1ebcb080cd97869f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 1352838966}
+  rectTransform: {fileID: 1352838964}
+  pokemon: {fileID: 11400000, guid: f9fcd06c2cf411d34ad45b2f0131e2bc, type: 2}
+  pokemonName: Grovyle
+  trainer: Javier
+  attacks: []
+  sex: 0
+  orientation: 0
+  confidence: 1
+  nervous: 0
+  protection: 0
+  state: 0
+  totalScore: 0
+  currentScore: 0
+  futureScore: 0
+--- !u!114 &1352838966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352838963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1932825480958834276, guid: 971e51de70ed1a2f3a7444ef630d3c12, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1352838967
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352838963}
+  m_CullTransparentMesh: 1
 --- !u!1 &1364680173
 GameObject:
   m_ObjectHideFlags: 0
@@ -3341,7 +3805,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1364680174
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3416,7 +3880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1423762959
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3491,7 +3955,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1436453327
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3601,11 +4065,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8fc10123985b54484d9b824ea11b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 1448084099}
+  gameManager: {fileID: 1078766695}
   cardText: {fileID: 1246591233}
   heartSprites:
   - {fileID: -3862428333496521934, guid: b4539e17de59b7df39beced0b35c4205, type: 3}
   - {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
-  - {fileID: 137655908918426253, guid: e8b6fc2c004225dde82affe5969b5237, type: 3}
+  - {fileID: 8377326608514935283, guid: 2dee0e0f9629391c484735b09894eb04, type: 3}
   hearts:
   - {fileID: 357055648}
   - {fileID: 647447254}
@@ -3617,10 +4083,7 @@ MonoBehaviour:
   - {fileID: 402915331}
   - {fileID: 699731671}
   - {fileID: 1603199303}
-  pokemonName: Charmander
-  trainerName: Julia
-  totalScore: 0
-  currentScore: 13
+  contestant: {fileID: 395996131}
 --- !u!114 &1448084099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3711,11 +4174,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8fc10123985b54484d9b824ea11b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 1463433154}
+  gameManager: {fileID: 1078766695}
   cardText: {fileID: 258505254}
   heartSprites:
   - {fileID: -3862428333496521934, guid: b4539e17de59b7df39beced0b35c4205, type: 3}
   - {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
-  - {fileID: 137655908918426253, guid: e8b6fc2c004225dde82affe5969b5237, type: 3}
+  - {fileID: 8377326608514935283, guid: 2dee0e0f9629391c484735b09894eb04, type: 3}
   hearts:
   - {fileID: 2003099081}
   - {fileID: 104580658}
@@ -3727,10 +4192,7 @@ MonoBehaviour:
   - {fileID: 1666312918}
   - {fileID: 1115351270}
   - {fileID: 44591130}
-  pokemonName: Alakazam
-  trainerName: Sean
-  totalScore: 0
-  currentScore: -2
+  contestant: {fileID: 1055184324}
 --- !u!114 &1463433154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3781,7 +4243,7 @@ GameObject:
   - component: {fileID: 1494781875}
   - component: {fileID: 1494781876}
   m_Layer: 5
-  m_Name: Contestants
+  m_Name: ContestantCards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3969,7 +4431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1603199302
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4084,7 +4546,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3862428333496521934, guid: b4539e17de59b7df39beced0b35c4205, type: 3}
+  m_Sprite: {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4159,7 +4621,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3862428333496521934, guid: b4539e17de59b7df39beced0b35c4205, type: 3}
+  m_Sprite: {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4176,6 +4638,109 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666312916}
+  m_CullTransparentMesh: 1
+--- !u!1 &1715073158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1715073159}
+  - component: {fileID: 1715073162}
+  - component: {fileID: 1715073161}
+  - component: {fileID: 1715073160}
+  m_Layer: 5
+  m_Name: Contestant1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1715073159
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715073158}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 934372513}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1250, y: -250}
+  m_SizeDelta: {x: 33, y: 36}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1715073160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715073158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d8705d1d0404e1ebcb080cd97869f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 1715073161}
+  rectTransform: {fileID: 1715073159}
+  pokemon: {fileID: 11400000, guid: 6e59f66239f4798ecbf08f23fdb653e4, type: 2}
+  pokemonName: Nidoran
+  trainer: Micheal
+  attacks: []
+  sex: 1
+  orientation: 1
+  confidence: 0
+  nervous: 0
+  protection: 0
+  state: 0
+  totalScore: 0
+  currentScore: 0
+  futureScore: 0
+--- !u!114 &1715073161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715073158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1791470397200612780, guid: d53e265474dd265da87a0f93b33055b7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1715073162
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715073158}
   m_CullTransparentMesh: 1
 --- !u!1 &1754001240
 GameObject:
@@ -4194,7 +4759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1754001241
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4344,7 +4909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1818292381
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4459,9 +5024,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><size=52>Pikachu</b>
-
-    <size=42><color=black>Micheal'
+  m_text: "<b><size=52>Nidoran<color=red>\u2640\uFE0F</color></b>\n<size=42><color=black>Micheal"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3c9b68eaf0a314f3e8be062f911fcb84, type: 2}
   m_sharedMaterial: {fileID: 3237812812371334167, guid: 3c9b68eaf0a314f3e8be062f911fcb84, type: 2}
@@ -4672,7 +5235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <color=orange>Pikachu</color> didn't attract much attention.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3c9b68eaf0a314f3e8be062f911fcb84, type: 2}
   m_sharedMaterial: {fileID: 3237812812371334167, guid: 3c9b68eaf0a314f3e8be062f911fcb84, type: 2}
@@ -4762,6 +5325,7 @@ GameObject:
   - component: {fileID: 1941023621}
   - component: {fileID: 1941023623}
   - component: {fileID: 1941023622}
+  - component: {fileID: 1941023624}
   m_Layer: 5
   m_Name: Textbox
   m_TagString: Untagged
@@ -4809,7 +5373,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1940177425, guid: ac412e12b681ec1c4b6c52034a07aa0c, type: 3}
+  m_Sprite: {fileID: 858488808, guid: ac412e12b681ec1c4b6c52034a07aa0c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4827,6 +5391,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941023620}
   m_CullTransparentMesh: 1
+--- !u!114 &1941023624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941023620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3585b56200293d48b419d3a6bde305a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textbox: {fileID: 1904468083}
 --- !u!1 &1953166900
 GameObject:
   m_ObjectHideFlags: 0
@@ -4884,7 +5461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3862428333496521934, guid: b4539e17de59b7df39beced0b35c4205, type: 3}
+  m_Sprite: {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4919,7 +5496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2003099080
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4959,7 +5536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3862428333496521934, guid: b4539e17de59b7df39beced0b35c4205, type: 3}
+  m_Sprite: {fileID: 5966433387711068599, guid: 7727b0b9069ead8e396319e86f441654, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4994,7 +5571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2003692816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5069,7 +5646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2100480997
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5241,6 +5818,7 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1078766694}
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 934372513}
