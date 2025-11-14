@@ -3106,13 +3106,13 @@ MonoBehaviour:
   - {fileID: 395996131}
   textbox: {fileID: 1941023624}
   turn: -1
-  contestType: 0
+  contestType: 4
   contestantsMoveSpeed: 2
   attackRoster:
-  - {fileID: 11400000, guid: 7fac17a4633e26e958fcaa55e7ad3864, type: 2}
-  - {fileID: 11400000, guid: e781b7ba0929a1c0fa120e84600401ab, type: 2}
+  - {fileID: 11400000, guid: f5d408c5d0f4fcbdeb32fad573ad790f, type: 2}
+  - {fileID: 11400000, guid: 5d694c32811ed0219b9f1c620860fc83, type: 2}
   - {fileID: 11400000, guid: 670b2472f2c8d0e0195d7bfefd5ea6f8, type: 2}
-  - {fileID: 11400000, guid: e3d574b3b26f3dc208fb600e96bcdfe0, type: 2}
+  - {fileID: 11400000, guid: e781b7ba0929a1c0fa120e84600401ab, type: 2}
   crowdCapture: {fileID: 0}
 --- !u!114 &1078766696
 MonoBehaviour:
@@ -5373,7 +5373,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 858488808, guid: ac412e12b681ec1c4b6c52034a07aa0c, type: 3}
+  m_Sprite: {fileID: -1689887816, guid: ac412e12b681ec1c4b6c52034a07aa0c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

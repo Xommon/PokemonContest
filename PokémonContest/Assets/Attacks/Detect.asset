@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdf4255e5021bc1fb81a7bc2a1179ba4, type: 3}
-  m_Name: Attract
+  m_Name: Detect
   m_EditorClassIdentifier: 
-  description: Makes attracted Pokemon very nervous
-  type: 4
+  description: Protects the user somewhat
+  type: 3
   appeal: 1
   jam: 0
-  avoid: 0
-  nervous: 3
-  confidence: 0
+  avoid: 1
+  nervous: 0
+  confidence: 1
   priority: 0
   mixUp: 0
   firstAppeal: 0

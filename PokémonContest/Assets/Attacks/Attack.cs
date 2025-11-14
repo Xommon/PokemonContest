@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Attack", menuName = "ScriptableObjects/Attack", order = 0)]
 public class Attack : ScriptableObject
 {
-    public enum Type { Cool, Tough, Beauty, Cute, Smart, Scary }
+    public enum Type { Cool, Beauty, Smart, Tough, Cute, Scary }
     public string description;
     public Type type;
     public int appeal; // 1+

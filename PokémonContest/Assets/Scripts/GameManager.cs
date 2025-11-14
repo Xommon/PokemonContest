@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     [Range(0, 5)]
     public int contestType;
     public float contestantsMoveSpeed;
+    private int silentStreak = 0; 
+
     public Attack[] attackRoster;
     public ActivePokemon crowdCapture;
 
@@ -31,7 +33,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // Subscribe to movement callbacks
         foreach (var mon in contestants)
             mon.OnMoveInFinished = HandleMoveInFinished;
     }
@@ -42,17 +43,13 @@ public class GameManager : MonoBehaviour
             NextTurn();
     }
 
-    // ------------------------------
-    // HELPERS
-    // ------------------------------
-
     ActivePokemon CurrentMon   => contestants[turn];
     Attack CurrentAttack       => attackRoster[turn];
     string PokeNameColored     => $"<color=red>{CurrentMon.pokemonName}</color>";
 
     void Say(string message)
     {
-        textbox.PushMessage(message, null); // Wait logic is handled separately
+        textbox.PushMessage(message, null);
     }
 
     IEnumerator WaitForTextbox()
@@ -61,17 +58,11 @@ public class GameManager : MonoBehaviour
 
         textbox.onMessageFinished = () => finished = true;
 
-        // Wait until text fully printed
         while (!finished)
             yield return null;
 
-        // Then wait 2 seconds
         yield return new WaitForSeconds(2f);
     }
-
-    // ------------------------------
-    // TURN FLOW
-    // ------------------------------
 
     public void NextTurn()
     {
@@ -80,7 +71,6 @@ public class GameManager : MonoBehaviour
         if (turn >= contestants.Length)
             return;
 
-        // Trigger Pokémon moving in
         contestants[turn].state = 1;
     }
 
@@ -186,11 +176,31 @@ public class GameManager : MonoBehaviour
         Say($"{PokeNameColored} used {attackName}!");
         yield return WaitForTextbox();
 
-        // Appeal hearts
+        // Base appeal gain
         CurrentMon.futureScore = CurrentMon.currentScore + CurrentAttack.appeal;
         yield return AddHeart();
 
-        // Secondary message
+        // ⭐ NEW: First Appeal Bonus
+        if (CurrentAttack.firstAppeal && turn == 0)
+        {
+            CurrentMon.futureScore = CurrentMon.currentScore + 3;  // add 3 more
+            yield return AddHeart();
+
+            Say("The first appeal was done very well.");
+            yield return WaitForTextbox();
+        }
+
+        // ⭐ NEW: Last Appeal Bonus
+        if (CurrentAttack.lastAppeal && turn == contestants.Length - 1)
+        {
+            CurrentMon.futureScore = CurrentMon.currentScore + 3;  // add 3 more
+            yield return AddHeart();
+
+            Say("The last appeal was done very well.");
+            yield return WaitForTextbox();
+        }
+
+        // Secondary messages (jam/nervous)
         if (CurrentAttack.jam > 0)
         {
             Say($"{PokeNameColored} tried to startle the others!");
@@ -212,6 +222,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    IEnumerator RemoveHeart()
+    {
+        while (CurrentMon.currentScore > CurrentMon.futureScore)
+        {
+            CurrentMon.currentScore--;
+            yield return new WaitForSeconds(0.15f);
+        }
+    }
+
     IEnumerator StageJam()
     {
         if (turn == 0)
@@ -224,16 +243,15 @@ public class GameManager : MonoBehaviour
                 Say($"{PokeNameColored} tried to make others nervous!");
                 yield return WaitForTextbox();
             }
-
             yield break;
         }
 
+        // Affect contestants BEFORE this one
         for (int i = 0; i < turn; i++)
         {
             if (contestants[i].protection == 0)
                 contestants[i].futureScore -= CurrentAttack.jam - contestants[i].confidence * 2;
 
-            // remove temporary protection
             if (contestants[i].protection == 1)
                 contestants[i].protection = 0;
         }
@@ -283,8 +301,6 @@ public class GameManager : MonoBehaviour
             if (Random.Range(0, 8 + contestants[i].confidence * 2 - CurrentAttack.nervous * 2) == 0)
                 contestants[i].nervous = true;
         }
-
-        yield return null;
     }
 
     IEnumerator StageProtection()
@@ -321,22 +337,72 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StageCrowd()
     {
+        bool cheered = false;
+        bool silent = false;
+
+        // ----------- CROWD REACTION -----------
+
         if (crowdCapture != null)
         {
             Say($"The crowd continues to watch {PokeNameColored}...");
-            yield return WaitForTextbox();
+            silent = false;
+            cheered = true;   // Counts as cheering so streak resets
         }
         else if ((int)CurrentAttack.type == contestType)
         {
             Say($"The crowd is cheering for {PokeNameColored}!");
-            yield return WaitForTextbox();
+            cheered = true;
+            silent = false;
         }
         else
         {
-            Say("The crowd is silent...");
-            yield return WaitForTextbox();
+            // Silent crowd
+            if (silentStreak >= 1)
+            {
+                Say($"The crowd is booing {PokeNameColored}!");
+            }
+            else
+            {
+                Say("The crowd is silent...");
+            }
+
+            silent = true;
+            cheered = false;
+        }
+
+        // Wait for message to finish + 2 seconds
+        yield return WaitForTextbox();
+
+        // ----------- CROWD BONUSES / PENALTIES -----------
+
+        if (cheered)
+        {
+            // Reset silence streak
+            silentStreak = 0;
+
+            // ⭐ CHEER BONUS: +1 heart
+            CurrentMon.futureScore = CurrentMon.currentScore + 1;
+            yield return AddHeart();     
+
+            // Wait 2 seconds before continuing
+            yield return new WaitForSeconds(2f);
+        }
+        else if (silent)
+        {
+            // Increase silent streak
+            silentStreak++;
+
+            if (silentStreak >= 2)
+            {
+                // ⭐ BOO PENALTY: -1 heart
+                CurrentMon.futureScore = CurrentMon.currentScore - 1;
+                yield return RemoveHeart();   // New coroutine below
+
+                yield return new WaitForSeconds(2f);
+            }
         }
     }
+
 
     public void EndTurn()
     {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tail Whip
   m_EditorClassIdentifier: 
   description: Works great if the user goes last this turn.
-  type: 3
+  type: 4
   appeal: 2
   jam: 0
   avoid: 0

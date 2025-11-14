@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Thunderbolt
   m_EditorClassIdentifier: 
   description: Mildly startles all Pokemon before the user
-  type: 0
+  type: 1
   appeal: 3
   jam: 1
   avoid: 0
