@@ -14,6 +14,12 @@ public class ContestantCard : MonoBehaviour
     public Image[] hearts;
     public ActivePokemon contestant;
 
+    // Variables
+    public int totalScore;
+    [Range(-10,20)]
+    public int currentScore;
+    public Pokemon[] pokemon;
+
     void Update()
     {
         // Background

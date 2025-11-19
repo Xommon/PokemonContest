@@ -4,15 +4,17 @@ using UnityEngine;
 public class Attack : ScriptableObject
 {
     public enum Type { Cool, Beauty, Smart, Tough, Cute, Scary }
-    public string description;
     public Type type;
+    public string description;
     public int appeal; // 1+
     public int jam; // 1+
-    public int avoid; // 1-2
+    public int protection; // 1-2
     public int nervous; // 1-2
     public int confidence; // 1
-    public bool priority;
-    public bool mixUp;
-    public bool firstAppeal;
-    public bool lastAppeal;
+    public bool priority; // T/F
+    public bool mixUp; // T/F
+    public bool firstAppeal; // T/F
+    public bool lastAppeal; // T/F
+    public bool genderBased; // T/F
+    public bool captivates; // T/F
 }

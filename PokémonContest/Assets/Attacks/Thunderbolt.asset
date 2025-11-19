@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf4255e5021bc1fb81a7bc2a1179ba4, type: 3}
   m_Name: Thunderbolt
   m_EditorClassIdentifier: 
-  description: Mildly startles all Pokemon before the user
-  type: 1
-  appeal: 3
-  jam: 1
-  avoid: 0
+  type: 0
+  description: A highly appealing move.
+  appeal: 0
+  jam: 0
+  protection: 0
   nervous: 0
   confidence: 0
   priority: 0
   mixUp: 0
   firstAppeal: 0
   lastAppeal: 0
+  genderBased: 0
+  captivates: 0

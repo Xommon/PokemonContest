@@ -1,3 +1,4 @@
+using Mono.Cecil;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,13 +37,26 @@ public class ActivePokemon : MonoBehaviour
 
     void Update()
     {
+        // Update name
+        pokemonName = pokemon.name;
+
         // Update sprite
         targetImage.SetNativeSize();
 
-        if (pokemon.sprites.Length > 1 && (sex == 0 || sex == 1))
-            targetImage.sprite = pokemon.sprites[sex];
+        if (sex == 0)
+            targetImage.sprite = Resources.Load<Sprite>("Sprites/Pokemon/" + pokemon.name.Replace(" ", "-").ToLower());
         else
-            targetImage.sprite = pokemon.sprites[0];
+        {
+            try
+            {
+                targetImage.sprite = Resources.Load<Sprite>("Sprites/Pokemon/" + pokemon.name.Replace(" ", "-").ToLower() + "-f");
+            }
+            catch
+            {
+                targetImage.sprite = Resources.Load<Sprite>("Sprites/Pokemon/" + pokemon.name.Replace(" ", "-").ToLower());
+            }
+        }
+        targetImage.color = Color.white;
 
         // ---------------------------------
         // MOVEMENT: ENTER STAGE (state = 1)

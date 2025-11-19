@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf4255e5021bc1fb81a7bc2a1179ba4, type: 3}
   m_Name: Attract
   m_EditorClassIdentifier: 
-  description: Makes attracted Pokemon very nervous
   type: 4
-  appeal: 1
+  description: "Makes all Pok\xE9mon after the user nervous."
+  appeal: 0
   jam: 0
-  avoid: 0
-  nervous: 3
+  protection: 0
+  nervous: 0
   confidence: 0
   priority: 0
   mixUp: 0
   firstAppeal: 0
   lastAppeal: 0
+  genderBased: 0
+  captivates: 0

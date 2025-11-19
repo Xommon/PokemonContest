@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf4255e5021bc1fb81a7bc2a1179ba4, type: 3}
   m_Name: Thunder Wave
   m_EditorClassIdentifier: 
-  description: Startles all Pokemon before the user
   type: 0
-  appeal: 1
-  jam: 2
-  avoid: 0
+  description: "Badly startles all Pok\xE9mon that made good appeals."
+  appeal: 0
+  jam: 0
+  protection: 0
   nervous: 0
   confidence: 0
   priority: 0
   mixUp: 0
+  firstAppeal: 0
+  lastAppeal: 0
+  genderBased: 0
+  captivates: 0

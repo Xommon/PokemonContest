@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf4255e5021bc1fb81a7bc2a1179ba4, type: 3}
+  m_Name: Reflect
+  m_EditorClassIdentifier: 
+  type: 2
+  description: Can avoid being startled by others.
+  appeal: 0
+  jam: 0
+  protection: 0
+  nervous: 0
+  confidence: 0
+  priority: 0
+  mixUp: 0
+  firstAppeal: 0
+  lastAppeal: 0
+  genderBased: 0
+  captivates: 0
