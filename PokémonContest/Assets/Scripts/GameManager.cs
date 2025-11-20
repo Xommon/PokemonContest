@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [System.Serializable]
 public class GameManager : MonoBehaviour
 {
     public ActivePokemon[] contestants;
+    public GameObject[] trainers;
     public Textbox textbox;
     public AudioManager audioManager;
 
@@ -24,16 +26,28 @@ public class GameManager : MonoBehaviour
 
     public int turn;
     public int playerPosition;
+    [Range(1, 5)]
     public int round;
     [Range(0, 5)]
     public int contestType;
+    public enum ContestLevel { Normal = 0, Super = 1, Hyper = 2, Master = 3 }
+    public ContestLevel contestLevel;
     public float contestantsMoveSpeed;
     private int silentStreak = 0; 
     public bool waitingForPlayer;
     public float musicVolume;
 
+    // Crowd
+    public GameObject[] crowd;
+    public bool react;
+    private float crowdTimer = 0f;
+    private bool isCheering = false;
+    private bool isBooing = false;
+    private int cheerLevel;
+    public int cheerThreshold;
 
     public Attack[] attackRoster;
+    public Attack[] previousAttackRoster;
     public ActivePokemon crowdCapture;
 
     private Queue<ContestStage> stageQueue = new Queue<ContestStage>();
@@ -45,15 +59,162 @@ public class GameManager : MonoBehaviour
         foreach (var mon in contestants)
             mon.OnMoveInFinished = HandleMoveInFinished;
 
+        // Start the intro and music
         audioManager.Play("Contest Music");
+        StartCoroutine(ContestIntroSequence());
+    }
+
+    IEnumerator MoveTrainerAcross(GameObject trainerObj, System.Action onMidpoint = null)
+    {
+        RectTransform rt = trainerObj.GetComponent<RectTransform>();
+
+        // PHASE 0 — Start offscreen
+        rt.anchoredPosition = new Vector2(-1250f, rt.anchoredPosition.y);
+
+        float enterSpeed = 1600f;   // fast in
+        float exitSpeed  = 1600f;   // fast out
+        float centerPause = 1.2f;   // how long they stay in center
+
+        // PHASE 1 — Move from -1250 → -500 (trigger text)
+        Vector2 midPoint = new Vector2(-500f, rt.anchoredPosition.y);
+
+        while (rt.anchoredPosition.x < -500f)
+        {
+            rt.anchoredPosition = Vector2.MoveTowards(
+                rt.anchoredPosition,
+                midPoint,
+                enterSpeed * Time.deltaTime
+            );
+
+            yield return null;
+        }
+
+        // Trigger the textbox here
+        onMidpoint?.Invoke();
+
+        // PHASE 2 — Move from -500 → 0 (center)
+        Vector2 center = new Vector2(0f, rt.anchoredPosition.y);
+
+        while (rt.anchoredPosition.x < 0f)
+        {
+            rt.anchoredPosition = Vector2.MoveTowards(
+                rt.anchoredPosition,
+                center,
+                enterSpeed * Time.deltaTime
+            );
+
+            yield return null;
+        }
+
+        // Pause in center
+        yield return new WaitForSeconds(centerPause);
+
+        // PHASE 3 — Move from center → +1250 (exit fast)
+        Vector2 exitTarget = new Vector2(1250f, rt.anchoredPosition.y);
+
+        while (rt.anchoredPosition.x < 1200f)
+        {
+            rt.anchoredPosition = Vector2.MoveTowards(
+                rt.anchoredPosition,
+                exitTarget,
+                exitSpeed * Time.deltaTime
+            );
+
+            yield return null;
+        }
+    }
+
+    IEnumerator ContestIntroSequence()
+    {
+        // 1. Contest welcome message
+        Say($"Welcome to the {(ContestLevel)contestLevel} {(Attack.Type)contestType} Contest!");
+        yield return WaitForTextbox();
+
+        Say("Today we have four great trainers competing for our top prize!");
+        yield return WaitForTextbox();
+
+        Say("Let's introduce them now!");
+        yield return WaitForTextbox();
+
+        // FORCE MAX CROWD CHEER FOR INTRO
+        cheerLevel = cheerThreshold + 1;
+        react = true;
+        isCheering = true;
+        isBooing = false;
+
+        // 2. INTRODUCE EACH TRAINER
+        for (int i = 0; i < contestants.Length; i++)
+        {
+            GameObject trainer = trainers[i];
+
+            // Move trainer across the screen FIRST
+            yield return StartCoroutine(MoveTrainerAcross(trainer));
+
+            // THEN announce them
+            Say($"{contestants[i].trainer} and <color=red>{contestants[i].pokemonName}</color>!");
+            yield return WaitForTextbox();
+
+            yield return new WaitForSeconds(1f);
+        }
+
+        // Stop intro cheer
+        react = false;
+        isCheering = false;
+        isBooing = false;
+        cheerLevel = 0;
+
+        // 3. Move to appeals phase
+        Say("It's time to move onto the appeals phase. Trainers, take your positions.");
+        yield return WaitForTextbox();
+
+        // 4. ENABLE CONTESTANT UI FIRST
+        uiManager.contestantsWindowBackground.SetActive(true);
+        uiManager.contestantsWindow.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        // 5. Now show "Round 1…" *before* opening the attack menu
+        Say("Round 1! Which move will be played?");
+        yield return WaitForTextbox();
+
+        // 6. FINALLY open the attacks window for player choice
+        uiManager.attacksWindow.SetActive(true);
+
+        // Enable turn flow
+        waitingForPlayer = true;
+        turn = -1;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            NextTurn();
+        crowdTimer += Time.deltaTime;
 
-        // Get player position
+        if (react && crowdTimer >= Mathf.Lerp(0.05f, 0.001f, cheerLevel / cheerThreshold))
+        {
+            crowdTimer = 0f;
+
+            GameObject selected = crowd[Random.Range(0, crowd.Length)];
+
+            CrowdMember cm = selected.GetComponent<CrowdMember>();
+            if (cm != null)
+            {
+                if (isBooing && silentStreak > 1)
+                    cm.PlayBoo();
+                else if (isCheering)
+                    cm.PlayJump();
+            }
+        }
+
+        // SPACE → debug next turn
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            for (int i = 1; i < 4; i++)
+                attackRoster[i] = contestants[i].attacks[Random.Range(0, contestants[i].attacks.Length)];
+
+            NextTurn();
+        }
+
+        // Update player position
         for (int i = 0; i < 4; i++)
         {
             if (contestants[i].trainer == "Micheal")
@@ -96,6 +257,7 @@ public class GameManager : MonoBehaviour
             return;
 
         contestants[turn].state = 1;
+        audioManager.Play("New Contestant");
     }
 
     public void ForceNextTurnFromUI()
@@ -232,6 +394,138 @@ public class GameManager : MonoBehaviour
         CurrentMon.futureScore = CurrentMon.currentScore + CurrentAttack.appeal;
         yield return AddHeart();
 
+        // ⭐ PRIORITY EFFECT (Next Turn Manipulation)
+        if (CurrentAttack.priority)
+        {
+            Say($"{PokeNameColored} will appeal earlier next round.");
+            yield return WaitForTextbox();
+
+            // Step 1: Try to assign nextTurn = 1
+            if (CurrentMon.contestantCard.nextTurn == 0)
+            {
+                CurrentMon.contestantCard.nextTurn = 1;
+            }
+
+            // Step 4: If anyone has 3, bump to 4
+            foreach (var c in contestants)
+            {
+                if (c.contestantCard.nextTurn == 3 && c != CurrentMon)
+                    c.contestantCard.nextTurn = 4;
+            }
+
+            // Step 3: If anyone has 2, bump to 3
+            foreach (var c in contestants)
+            {
+                if (c.contestantCard.nextTurn == 2 && c != CurrentMon)
+                    c.contestantCard.nextTurn = 3;
+            }
+
+            // Step 2: If ANYONE already has nextTurn=1, bump them to 2
+            foreach (var c in contestants)
+            {
+                if (c != CurrentMon && c.contestantCard.nextTurn == 1)
+                    c.contestantCard.nextTurn = 2;
+            }
+        }
+
+        // ⭐ CAPTIVATE EFFECT
+        if (CurrentAttack.captivates && crowdCapture == null)
+        {
+            Say($"The crowd was captivated by {PokeNameColored}!");
+            yield return WaitForTextbox();
+
+            crowdCapture = CurrentMon;
+        }
+
+        // Works well if it’s the same type as the one before
+        if (CurrentAttack.sameTypeAppeal)
+        {
+            if (turn > 0 && attackRoster[turn].type == attackRoster[turn - 1].type)
+            {
+                CurrentMon.futureScore = CurrentMon.currentScore + 4;  // add 4 more
+                yield return AddHeart();
+
+                Say("The appeal was the same type as the one before.");
+                yield return WaitForTextbox();
+            }
+            else
+            {
+                CurrentMon.futureScore = CurrentMon.currentScore;
+                yield return AddHeart();
+
+                Say("It didn't go over quite right...");
+                yield return WaitForTextbox();
+            }
+        }
+
+        // Copies the previous appeal
+        if (CurrentAttack.copyAppeal)
+        {
+            if (turn > 0)
+            {
+                CurrentMon.futureScore = contestants[turn -1].currentScore;  // copy previous score
+                yield return AddHeart();
+
+                Say("It did as well as the previous appeal!");
+                yield return WaitForTextbox();
+            }
+            else
+            {
+                CurrentMon.futureScore = CurrentMon.currentScore;
+                yield return AddHeart();
+
+                Say("It didn't go over quite right...");
+                yield return WaitForTextbox();
+            }
+        }
+
+        // Better if later
+        if (CurrentAttack.betterIfLater)
+        {
+            if (turn == 0)
+            {
+                CurrentMon.futureScore = CurrentMon.currentScore;
+                yield return AddHeart();
+
+                Say("The appeal didn't go so well...");
+                yield return WaitForTextbox();
+            }
+            else if (turn == 1)
+            {
+                CurrentMon.futureScore = CurrentMon.currentScore + 2;
+                yield return AddHeart();
+
+                Say("The appeal went alright.");
+                yield return WaitForTextbox();
+            }
+            else if (turn == 2)
+            {
+                CurrentMon.futureScore = CurrentMon.currentScore + 4;
+                yield return AddHeart();
+
+                Say("The appeal went pretty well.");
+                yield return WaitForTextbox();
+            }
+            else if (turn == 3)
+            {
+                CurrentMon.futureScore = CurrentMon.currentScore + 6;
+                yield return AddHeart();
+
+                Say("The appeal went great!");
+                yield return WaitForTextbox();
+            }
+        }
+
+        // Exhausted
+        if (CurrentAttack.exhaust == 2)
+        {
+            CurrentMon.futureScore = CurrentMon.currentScore;
+            yield return AddHeart();
+
+            Say($"The appeal went amazingly, but <color=red>{CurrentMon}</color> is now exhausted.");
+            yield return WaitForTextbox();
+        }
+
         // ⭐ NEW: First Appeal Bonus
         if (CurrentAttack.firstAppeal && turn == 0)
         {
@@ -270,7 +564,8 @@ public class GameManager : MonoBehaviour
         while (CurrentMon.currentScore < CurrentMon.futureScore)
         {
             CurrentMon.currentScore++;
-            yield return new WaitForSeconds(0.15f);
+            audioManager.Play("Red Heart", 1 + (CurrentMon.currentScore * 0.05f));
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
@@ -279,7 +574,8 @@ public class GameManager : MonoBehaviour
         while (CurrentMon.currentScore > CurrentMon.futureScore)
         {
             CurrentMon.currentScore--;
-            yield return new WaitForSeconds(0.15f);
+            audioManager.Play("Black Heart", 1 - (CurrentMon.currentScore * 0.05f));
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
@@ -329,7 +625,10 @@ public class GameManager : MonoBehaviour
             }
 
             if (keepGoing)
+            {
+                audioManager.Play("Black Heart", 1 - (CurrentMon.currentScore * 0.05f));
                 yield return new WaitForSeconds(0.15f);
+            }
         }
 
         if (CurrentAttack.nervous > 0)
@@ -416,67 +715,117 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StageCrowd()
     {
-        bool cheered = false;
-        bool silent = false;
+        // Reset reaction flags for this turn
+        isCheering = false;
+        isBooing = false;
 
-        // ----------- CROWD REACTION -----------
-
-        if (crowdCapture != null)
+        // Remember previous attack to check for repeats
+        if (attackRoster[turn] == previousAttackRoster[turn])
         {
-            Say($"The crowd continues to watch {PokeNameColored}...");
-            silent = false;
-            cheered = true;
+            Say($"The judge is disappointed by the repeated move.");
+            yield return WaitForTextbox();
+
+            CurrentMon.futureScore = CurrentMon.currentScore - 2;
+            yield return RemoveHeart();
+
+            yield return new WaitForSeconds(2f);
+            yield break;
         }
-        else if ((int)CurrentAttack.type == contestType)
+
+        // ----------- CAPTURED CROWD OVERRIDE -----------
+        if (crowdCapture != null && crowdCapture != contestants[turn])
         {
-            Say($"The crowd is cheering for {PokeNameColored}!");
-            cheered = true;
-            silent = false;
+            Say($"The crowd continues to watch <color=red>{crowdCapture.pokemonName}</color>...");
+            yield return WaitForTextbox();
+
+            // The crowd is cheering due to the captivation effect
+            isCheering = true;
+            isBooing = false;
+
+            // Trigger crowd animation for a short period
+            yield return new WaitForSeconds(2f);
+            yield break; // Skip normal crowd logic
+        }
+
+        // Determine crowd reaction normally
+        bool matchesType = ((int)CurrentAttack.type == contestType) || CurrentAttack.worksInAnyContest;
+
+        if (matchesType)
+        {
+            if (cheerLevel == cheerThreshold)
+            {
+                Say($"The crowd is going absolutely wild for {PokeNameColored}!");
+            }
+            else
+            {
+                Say($"The crowd is cheering for {PokeNameColored}!");
+            }
+
+            cheerLevel++;
+            isCheering = true;
+            isBooing = false;
         }
         else
         {
             if (silentStreak >= 1)
             {
                 Say($"The crowd is booing {PokeNameColored}!");
+                cheerLevel--;
+                isBooing = true;
+                isCheering = false;
             }
             else
             {
                 Say("The crowd is silent...");
+                isCheering = false;
+                isBooing = false;
             }
-
-            silent = true;
-            cheered = false;
         }
 
-        // Wait for textbox + 2 seconds
         yield return WaitForTextbox();
 
-        // ----------- CHEER BONUS / BOO PENALTY -----------
+        // -------- CROWD ANIMATION (Update() handles actual movement) --------
+        react = true;
+        yield return new WaitForSeconds(1f);
 
-        if (cheered)
+        // ----------- CHEER BONUS / BOO PENALTY -----------
+        if (isCheering)
         {
             silentStreak = 0;
 
-            CurrentMon.futureScore = CurrentMon.currentScore + 1;
+            CurrentMon.futureScore = (cheerLevel == cheerThreshold + 1) ? CurrentMon.currentScore + 6 : CurrentMon.currentScore + 1;
             yield return AddHeart();
+
+            if (cheerLevel > cheerThreshold)
+            {
+                cheerLevel = 0;
+            }
 
             yield return new WaitForSeconds(2f);
         }
-        else if (silent)
+        else if (isBooing)
         {
             silentStreak++;
 
             if (silentStreak >= 2)
             {
-                CurrentMon.futureScore = CurrentMon.currentScore - 1;
+                CurrentMon.futureScore = CurrentMon.currentScore - 2;
                 yield return RemoveHeart();
 
                 yield return new WaitForSeconds(2f);
             }
         }
+        else
+        {
+            // Completely silent — no streak change
+            silentStreak++;
+        }
+
+        // End reaction
+        yield return new WaitForSeconds(1.0f);
+        react = false;
 
         // ----------- END OF ROUND CHECK -----------
-
         if (turn == contestants.Length - 1)
         {
             contestants[3].state = 3;
@@ -486,8 +835,14 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StageRoundEnd()
     {
+        // Move onto the next set of moves
+        previousAttackRoster = attackRoster;
+
         // Reset turn for evaluation
         turn = -1;
+
+        // Reset crowd capture
+        crowdCapture = null;
 
         yield return new WaitForSeconds(2f);
 
@@ -531,6 +886,11 @@ public class GameManager : MonoBehaviour
                 if (contestants[i].currentScore > 0)
                 {
                     contestants[i].currentScore--;
+                    heartsRemaining = true;
+                }
+                else if (contestants[i].currentScore < 0)
+                {
+                    contestants[i].currentScore++;
                     heartsRemaining = true;
                 }
             }
@@ -578,15 +938,87 @@ public class GameManager : MonoBehaviour
 
     void SortContestantCards()
     {
-        // Sort contestants array
-        System.Array.Sort(uiManager.contestantCards, (a, b) => b.contestant.totalScore.CompareTo(a.contestant.totalScore));
+        var cards = uiManager.contestantCards.ToList();
 
-        // Reapply sibling order (top = highest)
+        // Step 1: Split by nextTurn category
+        var forced = new Dictionary<int, ContestantCard>(); // 1→index0, 2→index1, etc.
+        var normal = new List<ContestantCard>();            // nextTurn == 0
+        var negative = new List<ContestantCard>();          // nextTurn < 0
+
+        foreach (ContestantCard card in cards)
+        {
+            int nt = card.nextTurn;
+
+            if (nt >= 1 && nt <= 4)
+            {
+                forced[nt] = card; // forced placements
+            }
+            else if (nt == 0)
+            {
+                normal.Add(card);
+            }
+            else // nt < 0
+            {
+                negative.Add(card);
+            }
+        }
+
+        // Step 2: Sort nextTurn == 0 normally by totalScore, highest first
+        normal.Sort((a, b) => b.contestant.totalScore.CompareTo(a.contestant.totalScore));
+
+        // Step 3: Shuffle all negative contestants
+        negative = negative.OrderBy(x => UnityEngine.Random.value).ToList();
+
+        // Step 4: Build the final ordered list (4 slots)
+        ContestantCard[] finalOrder = new ContestantCard[4];
+
+        // Fill forced placements into exact positions
+        foreach (var kv in forced)
+        {
+            int nt = kv.Key;             // 1–4
+            finalOrder[nt - 1] = kv.Value;
+        }
+
+        // Step 5: Fill remaining empty slots with normal contestants first
+        int fillIndex = 0;
+        foreach (var card in normal)
+        {
+            while (fillIndex < 4 && finalOrder[fillIndex] != null)
+                fillIndex++;
+
+            if (fillIndex < 4)
+            {
+                finalOrder[fillIndex] = card;
+                fillIndex++;
+            }
+        }
+
+        // Step 6: Fill remaining slots with negative (random) contestants
+        foreach (var card in negative)
+        {
+            while (fillIndex < 4 && finalOrder[fillIndex] != null)
+                fillIndex++;
+
+            if (fillIndex < 4)
+            {
+                finalOrder[fillIndex] = card;
+                fillIndex++;
+            }
+        }
+
+        // Step 7: Apply final sibling order
         for (int i = 0; i < 4; i++)
         {
-            uiManager.contestantCards[i].transform.SetSiblingIndex(i);
+            finalOrder[i].transform.SetSiblingIndex(i);
+        }
+
+        // Step 8: Reset nextTurn
+        foreach (ContestantCard card in cards)
+        {
+            card.nextTurn = 0;
         }
     }
+
 
     public void EndTurn()
     {

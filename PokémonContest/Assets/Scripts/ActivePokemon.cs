@@ -1,11 +1,16 @@
 using Mono.Cecil;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+using System.Collections.Generic;
 
 [ExecuteAlways]
 public class ActivePokemon : MonoBehaviour
 {
+    public ContestantCard contestantCard;
+    public TrainerDisplay trainerDisplay;
     public Image targetImage;
+    private GameManager gameManager;
     public RectTransform rectTransform;
     public Pokemon pokemon;
     public string pokemonName;
@@ -37,6 +42,12 @@ public class ActivePokemon : MonoBehaviour
 
     void Update()
     {
+        // Get references
+        if (gameManager == null)
+        {
+            gameManager = FindFirstObjectByType<GameManager>();
+        }
+
         // Update name
         pokemonName = pokemon.name;
 
@@ -57,6 +68,10 @@ public class ActivePokemon : MonoBehaviour
             }
         }
         targetImage.color = Color.white;
+
+        // Update trainer display
+        trainerDisplay.mainImage.sprite = contestantCard.trainerSprite;
+        trainerDisplay.pokemonImage.sprite = Resources.Load<Sprite>("Sprites/Pokemon/" + pokemon.name.Replace(" ", "-").ToLower() + "_front");
 
         // ---------------------------------
         // MOVEMENT: ENTER STAGE (state = 1)
@@ -132,5 +147,38 @@ public class ActivePokemon : MonoBehaviour
         sex = GetRandomByRatio(pokemon.sexRatio[0], pokemon.sexRatio[1]);
         orientation = GetRandomByRatio(0.9f, 0.1f);
         targetImage.SetNativeSize();
+
+        Attack[] allMoves = pokemon.availableAttacks;
+
+        if (allMoves == null || allMoves.Length == 0)
+        {
+            Debug.LogWarning($"{pokemon.name} has no availableAttacks!");
+            attacks = new Attack[0];
+            return;
+        }
+
+        // Create a working pool so we can remove chosen moves
+        List<Attack> pool = allMoves.ToList();
+        List<Attack> chosen = new List<Attack>();
+
+        int movesToChoose = Mathf.Min(4, pool.Count);
+
+        for (int i = 0; i < movesToChoose; i++)
+        {
+            int index = Random.Range(0, pool.Count);
+
+            Attack selected = pool[index];
+            chosen.Add(selected);
+
+            // Remove so we can't pick it again
+            pool.RemoveAt(index);
+
+            // Assign to UI only if this is Pokemon1
+            if (gameObject.name == "Pokemon1")
+                gameManager.uiManager.attackUIButtons[i].attack = selected;
+        }
+
+        // Assign final chosen attacks to this ActivePokemon
+        attacks = chosen.ToArray();
     }
 }

@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 31f9a747ef98e4142a5ce9de7519ec9c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7030489056670562546
+    second: trNeckbeard_0
+  - first:
+      213: -1535607534364262051
+    second: trNeckbeard_1
+  - first:
+      213: -8188138012704429964
+    second: trNeckbeard_2
+  - first:
+      213: 5702519779300491982
+    second: trNeckbeard_3
+  - first:
+      213: -2484859271889058123
+    second: trNeckbeard_4
+  - first:
+      213: -8825822657685827598
+    second: trNeckbeard_5
+  - first:
+      213: -7950973303838044723
+    second: trNeckbeard_6
+  - first:
+      213: -3378836524397721604
+    second: trNeckbeard_7
+  - first:
+      213: 2721422646502567883
+    second: trNeckbeard_8
+  - first:
+      213: -8431066622219687617
+    second: trNeckbeard_9
+  - first:
+      213: -8155034280901971708
+    second: trNeckbeard_10
+  - first:
+      213: 6705634379132051664
+    second: trNeckbeard_11
+  - first:
+      213: -5862711287175330370
+    second: trNeckbeard_12
+  - first:
+      213: 2615595744335832267
+    second: trNeckbeard_13
+  - first:
+      213: 2598042731805536344
+    second: trNeckbeard_14
+  - first:
+      213: -5446350353707727639
+    second: trNeckbeard_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: trNeckbeard_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 195
+        width: 44
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0741ebb37fae6e90800000000000000
+      internalID: -7030489056670562546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 193
+        width: 42
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d510ecf551d60bae0800000000000000
+      internalID: -1535607534364262051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_2
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 195
+        width: 44
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47821ec2cd3ed5e80800000000000000
+      internalID: -8188138012704429964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_3
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 193
+        width: 42
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec248d9a68b632f40800000000000000
+      internalID: 5702519779300491982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_4
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 131
+        width: 40
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b6873658a1048dd0800000000000000
+      internalID: -2484859271889058123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_5
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 131
+        width: 40
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ffca06dd01648580800000000000000
+      internalID: -8825822657685827598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_6
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 131
+        width: 40
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcd8e1ef7e778a190800000000000000
+      internalID: -7950973303838044723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_7
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 131
+        width: 40
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf788293516fb11d0800000000000000
+      internalID: -3378836524397721604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_8
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 67
+        width: 40
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf2d707a7f64c520800000000000000
+      internalID: 2721422646502567883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_9
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 67
+        width: 40
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3961f8a395defa80800000000000000
+      internalID: -8431066622219687617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_10
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 67
+        width: 40
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40174bb578f73de80800000000000000
+      internalID: -8155034280901971708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_11
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 67
+        width: 38
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d020d990f23f0d50800000000000000
+      internalID: 6705634379132051664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_12
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 3
+        width: 44
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb5cd33752773aea0800000000000000
+      internalID: -5862711287175330370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_13
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1
+        width: 42
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc42921b8767c4420800000000000000
+      internalID: 2615595744335832267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_14
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 3
+        width: 44
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 850fd8c791a1e0420800000000000000
+      internalID: 2598042731805536344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trNeckbeard_15
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1
+        width: 42
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e48de4953daa64b0800000000000000
+      internalID: -5446350353707727639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      trNeckbeard_0: -7030489056670562546
+      trNeckbeard_1: -1535607534364262051
+      trNeckbeard_10: -8155034280901971708
+      trNeckbeard_11: 6705634379132051664
+      trNeckbeard_12: -5862711287175330370
+      trNeckbeard_13: 2615595744335832267
+      trNeckbeard_14: 2598042731805536344
+      trNeckbeard_15: -5446350353707727639
+      trNeckbeard_2: -8188138012704429964
+      trNeckbeard_3: 5702519779300491982
+      trNeckbeard_4: -2484859271889058123
+      trNeckbeard_5: -8825822657685827598
+      trNeckbeard_6: -7950973303838044723
+      trNeckbeard_7: -3378836524397721604
+      trNeckbeard_8: 2721422646502567883
+      trNeckbeard_9: -8431066622219687617
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

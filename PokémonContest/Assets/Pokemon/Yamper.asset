@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5466de8708c3b8fa49e60c909754f541, type: 3}
+  m_Name: Yamper
+  m_EditorClassIdentifier: 
+  types: 04000000
+  availableAttacks:
+  - {fileID: 11400000, guid: 97233eee65bd9ab858bda51e16c6f19f, type: 2}
+  - {fileID: 11400000, guid: 3197f7cc3972bf199be051e5c54b8703, type: 2}
+  - {fileID: 11400000, guid: 6ea466e0832b1823298e07d7440bd43d, type: 2}
+  - {fileID: 11400000, guid: e781b7ba0929a1c0fa120e84600401ab, type: 2}
+  - {fileID: 11400000, guid: aeb72a97e3b687ad49bbe0e32c99ed4f, type: 2}
+  - {fileID: 11400000, guid: 4d39e653333a6e15eafb211377332c94, type: 2}
+  - {fileID: 11400000, guid: 5d694c32811ed0219b9f1c620860fc83, type: 2}
+  - {fileID: 11400000, guid: 670b2472f2c8d0e0195d7bfefd5ea6f8, type: 2}
+  - {fileID: 11400000, guid: d896874f66250e8a7b9d1dc4c12a5f2d, type: 2}
+  - {fileID: 11400000, guid: 1905875e5a274fae6aae2e54f9c4b25d, type: 2}
+  - {fileID: 11400000, guid: b7fac3b95d9e60fb5a8ffcc1d7139013, type: 2}
+  - {fileID: 11400000, guid: 69ba8e2d8fe99c5448d13c98161c3dd2, type: 2}
+  - {fileID: 11400000, guid: a4a8a659bf710f9af9520d462872627b, type: 2}
+  - {fileID: 11400000, guid: bbe95f03327312f23add37612108e6f5, type: 2}
+  - {fileID: 11400000, guid: f5d408c5d0f4fcbdeb32fad573ad790f, type: 2}
+  - {fileID: 11400000, guid: e65fcb12106022d73adb355e927e1258, type: 2}
+  - {fileID: 11400000, guid: 5ce2325a7ccbe23708f8ccd77b4e306c, type: 2}
+  - {fileID: 11400000, guid: 1fb0ebffa09929cdc9164c82bb16b951, type: 2}
+  - {fileID: 11400000, guid: 690822897df865b78b211359394d3465, type: 2}
+  - {fileID: 11400000, guid: 1789b3b5d851c4ec6804962ec69b51c5, type: 2}
+  - {fileID: 11400000, guid: 26be20e28c56569f18bfd318a5e77606, type: 2}
+  - {fileID: 11400000, guid: 91a1097129b5a00d096fdcf78cb7d227, type: 2}
+  - {fileID: 11400000, guid: 9e0e9649f615cecb5b02b98f770156c0, type: 2}
+  - {fileID: 11400000, guid: 264100e2765f727c2a99dcb33353f24c, type: 2}
+  - {fileID: 11400000, guid: 1d22a5da77cdd1d249dddb271037671d, type: 2}
+  - {fileID: 11400000, guid: 34458ec70dc7865fca9e4b91eb2699b7, type: 2}
+  sexRatio:
+  - 0.5
+  - 0.5

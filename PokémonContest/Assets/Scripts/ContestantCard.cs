@@ -10,27 +10,30 @@ public class ContestantCard : MonoBehaviour
     public Image background;
     public GameManager gameManager;
     public TextMeshProUGUI cardText;
+    public Sprite trainerSprite;
     public Sprite[] heartSprites;
     public Image[] hearts;
     public ActivePokemon contestant;
+    public int nextTurn;
+    public TextMeshProUGUI nextTurnText;
 
     // Variables
     public int totalScore;
     [Range(-10,20)]
     public int currentScore;
     public Pokemon[] pokemon;
+    private float alpha;
 
     void Update()
     {
+        if (contestant.contestantCard == null)
+        {
+            contestant.contestantCard = this;
+        }
+
         // Background
-        if (gameManager.turn == -1)
-        {
-            background.color = new Color(1, 1, 1, 1);
-        }
-        else
-        {
-            background.color = (gameManager.turn == transform.GetSiblingIndex()) ? new Color(1, 1, 1, 1) : new Color(1, 1, 1, 0.35f);
-        }
+        alpha = (gameManager.turn == -1) ? 1 : 0.35f;
+        background.color = (gameObject.name == "Contestant1") ? new Color(1, 0.5f, 0.4f, alpha) : new Color(1, 1, 1, alpha);
 
         // Get sex
         string sex = "";
@@ -45,6 +48,20 @@ public class ContestantCard : MonoBehaviour
 
         // Update text
         cardText.text = $"<b><size=52>{contestant.pokemonName}{sex}</b>\n<size=42><color=black>{contestant.trainer}";
+
+        // Next turn
+        if (nextTurn == 0)
+        {
+            nextTurnText.text = "";
+        }
+        else if (nextTurn > 0 && nextTurn < 5)
+        {
+            nextTurnText.text = "Next Turn <b>" + nextTurn;
+        }
+        else if (nextTurn < 0)
+        {
+            nextTurnText.text = "Next Turn <b>?";
+        }
 
         // Update hearts
         for (int i = 0; i < 10; i++)

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json.Linq;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -282,6 +283,8 @@ public class PokedexCreatorEditor : Editor
 
         string spriteUrl      = (string)bwSprites?["back_default"];
         string spriteFemaleUrl = (string)bwSprites?["back_female"];
+        string spriteUrlFront      = (string)bwSprites?["front_default"];
+        string spriteFemaleUrlFront = (string)bwSprites?["front_female"];
 
         if (!string.IsNullOrEmpty(spriteUrl))
         {
@@ -300,6 +303,26 @@ public class PokedexCreatorEditor : Editor
             {
                 string spritePathF = $"{SpritesFolder}/{slug}-f.png";
                 WriteFile(spritePathF, spriteBytesF);
+            }
+        }
+
+        if (!string.IsNullOrEmpty(spriteUrlFront))
+        {
+            byte[] spriteBytes = GetBytes(spriteUrlFront);
+            if (spriteBytes != null)
+            {
+                string spritePath = $"{SpritesFolder}/{slug}_front.png";
+                WriteFile(spritePath, spriteBytes);
+            }
+        }
+
+        if (!string.IsNullOrEmpty(spriteFemaleUrlFront))
+        {
+            byte[] spriteBytes = GetBytes(spriteFemaleUrlFront);
+            if (spriteBytes != null)
+            {
+                string spritePath = $"{SpritesFolder}/{slug}_front-f.png";
+                WriteFile(spritePath, spriteBytes);
             }
         }
 
@@ -436,6 +459,162 @@ public class PokedexCreatorEditor : Editor
 
         AssetDatabase.CreateAsset(atk, assetPath);
         EditorUtility.SetDirty(atk);
+
+        switch (description)
+        {
+            // Appeal
+            case "A highly appealing move.":
+                atk.appeal = 4;
+                break;
+
+            case "Works well if it’s the same type as the one before.":
+                description = "Works well if it's the same type as the one before.";
+                atk.appeal = 2;
+                atk.sameTypeAppeal = true;
+                break;
+
+            case "Makes the appeal as good as those before it.":
+                atk.appeal = 0;
+                atk.copyAppeal = true;
+                break;
+
+            case "The appeal works better the later it is performed.":
+                atk.appeal = 0;
+                atk.betterIfLater = true;
+                break;
+
+            case "Makes a great appeal, but allows no more to the end.":
+                description = "A fantastic appeal, but the user can no longer make future appeals.";
+                atk.appeal = 8;
+                atk.exhaust = 2;
+                break;
+
+            case "An appeal that excites the audience in any contest.":
+                atk.appeal = 2;
+                atk.worksInAnyContest = true;
+                break;
+
+            case "Can be repeatedly used without boring the judge.":
+                atk.appeal = 3;
+                atk.repeatable = true;
+                break;
+
+            // Jam
+            case "Jams the others, and misses one turn of appeals.":
+                atk.appeal = 4;
+                atk.jam = 4;
+                atk.exhaust = 1;
+                break;
+
+            case "Badly startles the Pokémon in front.":
+                description = "Badly startles the Pokémon directly before the user.";
+                atk.appeal = 1;
+                atk.jam = 3;
+                break;
+
+            case "Startles all Pokémon that have done their appeals.":
+                atk.appeal = 2;
+                atk.jam = 1;
+                break;
+
+            case "Badly startles all Pokémon that made good appeals.":
+                atk.appeal = 1;
+                atk.jam = 3;
+                break;
+
+            case "Startles Pokémon that made a same-type appeal.":
+                atk.appeal = 2;
+                atk.jam = 1;
+                atk.sameTypeJam = true;
+                break;
+
+            case "Badly startles those that have made appeals.":
+                atk.appeal = 1;
+                atk.jam = 3;
+                break;
+
+            case "Startles the Pokémon that has the judge’s attention.":
+                description = "Startles the Pokémon that has the judge's attention.";
+                atk.appeal = 1;
+                atk.jam = 3;
+                break;
+
+            // Protection
+            case "Can avoid being startled by others.":
+                atk.appeal = 1;
+                atk.protection = 2;
+                break;
+
+            case "Can avoid being startled by others once.":
+                atk.appeal = 2;
+                atk.protection = 1;
+                break;
+
+            // Confidence
+            case "Ups the user’s condition.  Helps prevent nervousness.":
+                description = "Raises the user's confidence, making them harder to startle.";
+                atk.appeal = 1;
+                atk.confidence = 1;
+                break;
+
+            case "After this move, the user is more easily startled.":
+                description = "Lowers the user's confidence, making them easier to startle.";
+                atk.appeal = 6;
+                atk.confidence = -1;
+                break;
+
+            case "Worsens the condition of those that made appeals.":
+                description = "Lowers the confidence of those who made appeals";
+                atk.appeal = 1;
+                atk.lowerConfidence = true;
+                break;
+
+            // Priority
+            case "Scrambles up the order of appeals on the next turn.":
+                atk.appeal = 3;
+                atk.mixUp = true;
+                break;
+
+            case "The next appeal can be made earlier next turn.":
+                atk.appeal = 3;
+                atk.priority = true;
+                break;
+
+            case "The next appeal can be made later next turn.":
+                atk.appeal = 3;
+                atk.notPriority = true;
+                break;
+
+            // Order
+            case "The appeal works great if performed last.":
+                atk.appeal = 2;
+                atk.lastAppeal = true;
+                break;
+
+            case "The appeal works great if performed first.":
+                atk.appeal = 2;
+                atk.firstAppeal = true;
+                break;
+
+            // Unnerve
+            case "Makes all Pokémon after the user nervous.":
+                atk.appeal = 2;
+                atk.nervous = 1;
+                break;
+
+            // Captivates
+            case "Temporarily stops the crowd from getting excited.":
+            case "Shifts the judge’s attention from others.":
+                description = "Prevents the crowd from reacting to other Pokémon's appeals.";
+                atk.appeal = 3;
+                atk.captivates = true;
+                break;
+
+            
+
+
+                // Add as many cases as you want
+        }
 
         return atk;
     }

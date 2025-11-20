@@ -14,14 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   description: Jams the others, and misses one turn of appeals.
-  appeal: 0
-  jam: 0
+  appeal: 4
+  jam: 4
   protection: 0
   nervous: 0
   confidence: 0
   priority: 0
+  notPriority: 0
   mixUp: 0
   firstAppeal: 0
   lastAppeal: 0
   genderBased: 0
   captivates: 0
+  sameTypeAppeal: 0
+  sameTypeJam: 0
+  lowerConfidence: 0
+  repeatable: 0
+  worksInAnyContest: 0
+  exhaust: 1
+  copyAppeal: 0
+  betterIfLater: 0
+  betterIfEarlier: 0

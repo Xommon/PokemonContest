@@ -8,6 +8,9 @@ public class UIManager : MonoBehaviour
     // References
     public Image textboxImage;
     public GameManager gameManager;
+    public AttackUI[] attackUIButtons;
+    public GameObject contestantsWindowBackground;
+    public GameObject contestantsWindow;
 
     // Attack information
     public GameObject attacksWindow;
